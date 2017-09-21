@@ -9,7 +9,7 @@ Terraform module which creates AWS access via SAML.
 module "saml" {
   source = "zoitech/saml/aws"
   role_name = "SAML-Admin"
-  provider_metadata_url = "https://something.com/metadata.xml"
+  provider_metadata_file = "metadata.xml"
 }
 ```
 
