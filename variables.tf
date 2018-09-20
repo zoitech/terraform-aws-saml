@@ -9,7 +9,7 @@ variable "aws_region" {
 variable "role_names" {
   type = "list"
   description = "The name(s) of the Role(s)"
-  default = "Delegate-Saml-Admin"
+  default = ["Delegate-Saml-Admin"]
 }
 variable "role_policies" {
   type = "list"
