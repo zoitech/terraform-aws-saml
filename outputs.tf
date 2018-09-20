@@ -1,6 +1,6 @@
-output "role"{
+output "roles"{
   description = "ARN of the Role"
-  value = "${aws_iam_role.DelegateUser.id}"
+  value = "${aws_iam_role.DelegateUser.*.id}"
 }
 output "saml_provider"{
   description = "ARN of the SAML Provider"
