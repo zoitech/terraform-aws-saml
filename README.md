@@ -1,15 +1,18 @@
 # AWS generic account setup
 Terraform module which creates AWS access via SAML.
 * Create SAML Provider
-* Create Role for SAML access
-* Attach given set of policies
+* Create Roles for SAML access
+* Attach a policy to each role
 
 ## Usage
 ```hcl
 module "saml" {
-  source = "zoitech/saml/aws"
-  role_name = "SAML-Admin"
+  source                 = "git::https://github.com/zoitech/terraform-aws-saml.git"
+  provider_name          = "my-saml-provider"
   provider_metadata_file = "metadata.xml"
+  role_names             = ["SAML-Admin", "SAML-ReadOnly]
+  role_policies          = ["arn:aws:iam::aws:policy/AdministratorAccess","arn:aws:iam::aws:policy/ReadOnlyAccess"]
+  
 }
 ```
 
