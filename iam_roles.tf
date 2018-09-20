@@ -1,6 +1,7 @@
 resource "aws_iam_role" "DelegateUser" {
-    name = "${var.role_name}"
-    assume_role_policy = <<EOF
+  count              = "${var.role_names}"
+  name               = "${element(var.role_names, count.index)}"
+  assume_role_policy = <<EOF
 {
   "Version": "2012-10-17",
   "Statement": [
@@ -21,7 +22,7 @@ resource "aws_iam_role" "DelegateUser" {
 EOF
 }
 resource "aws_iam_role_policy_attachment" "DelegateUser_Attachment" {
-    role = "${aws_iam_role.DelegateUser.name}"
-    policy_arn = "${element(var.role_policies, count.index)}"
-    count = "${length(var.role_policies)}"
+  count      = "${var.role_names}"
+  role       = "${element(aws_iam_role.DelegateUser.*.name, count.index)}"
+  policy_arn = "${element(var.role_policies, count.index)}"
 }
