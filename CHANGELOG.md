@@ -2,7 +2,7 @@
 
 BUG FIXES:
 
-providers.tf: provider aws overrides external provider aws (#1)
+providers.tf: provider aws overrides external provider aws ([#4](https://github.com/zoitech/terraform-aws-saml/issues/4))
 
 ## Release Version: 0.0.2
 
