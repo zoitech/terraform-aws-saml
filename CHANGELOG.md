@@ -1,3 +1,9 @@
+## 0.0.3 (Unreleased)
+
+BUG FIXES:
+
+providers.tf: provider aws overrides external provider aws (#1)
+
 ## Release Version: 0.0.2
 
 BACKWARDS INCOMPATIBILITIES / NOTES:
@@ -8,7 +14,7 @@ NEW FEATURES:
 
 * Multiple roles can be added to the IDP
 
-IMPROVEMENTS:
+ENHANCEMENTS:
 
 *
 
