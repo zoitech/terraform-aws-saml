@@ -1,27 +1,23 @@
-# Settings
-# Account ID
-data "aws_caller_identity" "current" { }
-
-variable "aws_region" {
-  description = "The reqion where the ressrouces should be create. Unimportant as IAM."
-  default = "eu-central-1"
-}
-variable "role_names" {
-  type = "list"
-  description = "The name(s) of the Role(s)"
-  default = ["Delegate-Saml-Admin"]
-}
-variable "role_policies" {
-  type = "list"
-  description = "The policies attached to the role"
-  default = ["arn:aws:iam::aws:policy/AdministratorAccess"]
-}
-
 variable "provider_name" {
   description = "The name of the provider."
-  default = "default-saml-provider"
+  default     = "ADFS"
+}
+
+variable "create_all_roles" {
+  description = "Add billing and logging roles"
+  default     = false
+}
+
+variable "roles" {
+  description = "For custom defined roles and permissions"
+  type = list(object({
+    role_name        = string
+    role_policy_arn  = string
+    role_description = string
+  }))
+  default = null
 }
 variable "provider_metadata_file" {
   description = "The path to of the metadatafile"
-  default =""
+  default     = null
 }
