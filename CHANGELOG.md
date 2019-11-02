@@ -1,4 +1,4 @@
-## 0.0.4
+## 1.1.1
 
 BACKWARDS INCOMPATIBILITIES / NOTES:
 * Variable "create_all_roles" was removed
@@ -9,7 +9,7 @@ ENHANCEMENTS:
 BUG FIXES:
 * Make billing and logging role independent from one another ([#10](https://github.com/zoitech/terraform-aws-saml/issues/10))
 
-## 0.0.3
+## 1.0.1
 
 BACKWARDS INCOMPATIBILITIES / NOTES:
 * Terraform version 0.12.x
