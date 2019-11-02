@@ -83,6 +83,7 @@ module "saml" {
 module "iam_saml" {
   source = "git::https://github.com/zoitech/terraform-aws-saml.git?ref=0.0.4"  
 }
+```
 
 
 ## Authors
