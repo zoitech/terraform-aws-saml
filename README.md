@@ -90,4 +90,4 @@ module "iam_saml" {
 Module managed by [Zoi](https://github.com/zoitech).
 
 ## License
-MIT License. See LICENSE for full details.
+MIT License. See [LICENSE](https://github.com/zoitech/terraform-aws-saml/blob/master/LICENSE) for full details.
