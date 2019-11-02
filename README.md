@@ -25,12 +25,30 @@ module "iam_saml" {
 
 ### Billing and Logging Roles
 
-To create additonal billing and loggin roles, set the variable "create_all_roles" to "true" (without quotes). This will create two additonal roles: "SAML_Billing" and "SAML_Logging" with the assigned policies "Billing" and "CloudWatchLogsReadOnlyAccess" respectively.
+To create additonal billing and loggin roles, set the variables "create_billing_role" and "create_logging_role" to "true" (without quotes). This enables the possibility of creating two additonal roles: "SAML_Billing" and "SAML_Logging" with the assigned policies "Billing" and "CloudWatchLogsReadOnlyAccess" respectively.
 
 ```hcl
 module "iam_saml" {
-  source           = "git::https://github.com/zoitech/terraform-aws-saml.git"
-  create_all_roles = true
+  source              = "git::https://github.com/zoitech/terraform-aws-saml.git"
+  create_billing_role =  true
+  create_logging_role =  true
+}
+```
+
+### Custom Policies for the Pre-Defined Roles
+
+It is possible to specify a different policy for the pre-defined roles:
+
+```hcl
+module "iam_saml" {
+  source                            = "git::https://github.com/zoitech/terraform-aws-saml.git"
+  fullaccess_role_custom_policy_arn = "arn:aws:iam::123456789123:policy/tf-my-custom-full-access-policy"
+  poweruser_role_custom_policy_arn  = "arn:aws:iam::123456789123:policy/tf-my-custom-poweruser-policy"
+  readonly_role_custom_policy_arn   = "arn:aws:iam::123456789123:policy/tf-my-custom-readonly-policy"
+  create_billing_role               =  true
+  billing_role_custom_policy_arn    = "arn:aws:iam::123456789123:policy/tf-my-custom-billing-policy"
+  create_logging_role               =  true
+  logging_role_custom_policy_arn    = "arn:aws:iam::123456789123:policy/tf-my-custom-logging-policy"
 }
 ```
 
@@ -63,7 +81,7 @@ module "saml" {
 
 ```hcl
 module "iam_saml" {
-  source = "git::https://github.com/zoitech/terraform-aws-saml.git?ref=0.0.3"  
+  source = "git::https://github.com/zoitech/terraform-aws-saml.git?ref=0.0.4"  
 }
 
 

@@ -1,7 +1,15 @@
-## 0.0.3 
+## 0.0.4
+
+BACKWARDS INCOMPATIBILITIES / NOTES:
+* Variable "create_all_roles" was removed
+
+ENHANCEMENTS:
+* Enable all roles to take a custom policy ([#11](https://github.com/zoitech/terraform-aws-saml/issues/11))
 
 BUG FIXES:
-* providers.tf: provider aws overrides external provider aws ([#4](https://github.com/zoitech/terraform-aws-saml/issues/4))
+* Make billing and logging role independent from one another ([#10](https://github.com/zoitech/terraform-aws-saml/issues/10))
+
+## 0.0.3
 
 BACKWARDS INCOMPATIBILITIES / NOTES:
 * Terraform version 0.12.x
@@ -10,6 +18,9 @@ ENHANCEMENTS:
 * Upgraded to terraform 0.12.x ([#6](https://github.com/zoitech/terraform-aws-saml/issues/6))
 * Option to add additional billing and logging role ([#7](https://github.com/zoitech/terraform-aws-saml/issues/7))
 * List variables "role_names" and "role_policies" combined into list of objects/maps variable ([#8](https://github.com/zoitech/terraform-aws-saml/issues/8))
+
+BUG FIXES:
+* providers.tf: provider aws overrides external provider aws ([#4](https://github.com/zoitech/terraform-aws-saml/issues/4))
 
 ## 0.0.2
 
