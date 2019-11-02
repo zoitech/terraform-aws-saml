@@ -20,6 +20,8 @@ the identity provider will be created with the name "ADFS".
 ```hcl
 module "iam_saml" {
   source                 = "git::https://github.com/zoitech/terraform-aws-saml.git"  
+  provider_name          = "my-saml-provider"
+  provider_metadata_file = "metadata.xml"
 }
 ```
 
@@ -29,9 +31,11 @@ To create additonal billing and loggin roles, set the variables "create_billing_
 
 ```hcl
 module "iam_saml" {
-  source              = "git::https://github.com/zoitech/terraform-aws-saml.git"
-  create_billing_role =  true
-  create_logging_role =  true
+  source                 = "git::https://github.com/zoitech/terraform-aws-saml.git"
+  provider_name          = "my-saml-provider"
+  provider_metadata_file = "metadata.xml"
+  create_billing_role    =  true
+  create_logging_role    =  true
 }
 ```
 
@@ -42,6 +46,8 @@ It is possible to specify a different policy for the pre-defined roles:
 ```hcl
 module "iam_saml" {
   source                            = "git::https://github.com/zoitech/terraform-aws-saml.git"
+  provider_name                     = "my-saml-provider"
+  provider_metadata_file            = "metadata.xml"
   fullaccess_role_custom_policy_arn = "arn:aws:iam::123456789123:policy/tf-my-custom-full-access-policy"
   poweruser_role_custom_policy_arn  = "arn:aws:iam::123456789123:policy/tf-my-custom-poweruser-policy"
   readonly_role_custom_policy_arn   = "arn:aws:iam::123456789123:policy/tf-my-custom-readonly-policy"
