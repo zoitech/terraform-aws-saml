@@ -25,12 +25,16 @@ module "iam_saml" {
 
 ### Billing and Logging Roles
 
-To create additonal billing and loggin roles, set the variable "create_all_roles" to "true" (without quotes). This will create two additonal roles: "SAML_Billing" and "SAML_Logging" with the assigned policies "Billing" and "CloudWatchLogsReadOnlyAccess" respectively.
+To create additonal billing and loggin roles, set the variables "create_billing_role" and "create_logging_role" to "true" (without quotes). This enables the possibility of creating two additonal roles: "SAML_Billing" and "SAML_Logging" with the assigned policies "Billing" and "CloudWatchLogsReadOnlyAccess" respectively.
 
 ```hcl
 module "iam_saml" {
-  source           = "git::https://github.com/zoitech/terraform-aws-saml.git"
-  create_all_roles = true
+  source                 = "git::https://github.com/zoitech/terraform-aws-saml.git"
+  provider_name          = "my-saml-provider"
+  provider_metadata_file = "metadata.xml"
+  create_billing_role    =  true
+  create_logging_role    =  true
+}
 }
 ```
 
@@ -65,7 +69,7 @@ module "saml" {
 module "iam_saml" {
   source = "git::https://github.com/zoitech/terraform-aws-saml.git?ref=0.0.3"  
 }
-
+```
 
 ## Authors
 Module managed by [Zoi](https://github.com/zoitech).
