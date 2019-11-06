@@ -1,4 +1,12 @@
-## 0.0.3 
+## 1.1.1
+
+BACKWARDS INCOMPATIBILITIES / NOTES:
+* Variable "create_all_roles" was removed
+
+BUG FIXES:
+* Make billing and logging role independent from one another ([#10](https://github.com/zoitech/terraform-aws-saml/issues/10))
+
+## 1.0.1 
 
 BUG FIXES:
 * providers.tf: provider aws overrides external provider aws ([#4](https://github.com/zoitech/terraform-aws-saml/issues/4))

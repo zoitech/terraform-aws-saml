@@ -3,9 +3,9 @@ variable "provider_name" {
   default     = "ADFS"
 }
 
-variable "create_all_roles" {
-  description = "Add billing and logging roles"
-  default     = false
+variable "provider_metadata_file" {
+  description = "The path to of the metadatafile"
+  default     = null
 }
 
 variable "roles" {
@@ -16,8 +16,4 @@ variable "roles" {
     role_description = string
   }))
   default = null
-}
-variable "provider_metadata_file" {
-  description = "The path to of the metadatafile"
-  default     = null
 }
