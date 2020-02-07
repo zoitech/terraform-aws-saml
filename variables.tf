@@ -17,3 +17,13 @@ variable "roles" {
   }))
   default = null
 }
+
+variable "create_billing_role" {
+  description = "For creating the Delegate-Saml-Billing role"
+  default     = null
+}
+
+variable "create_logging_role" {
+  description = "For creating the Delegate-Saml-Logging role"
+  default     = null
+}
