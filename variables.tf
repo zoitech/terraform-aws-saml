@@ -20,10 +20,10 @@ variable "roles" {
 
 variable "create_billing_role" {
   description = "For creating the Delegate-Saml-Billing role"
-  default     = null
+  default     = false
 }
 
 variable "create_logging_role" {
   description = "For creating the Delegate-Saml-Logging role"
-  default     = null
+  default     = false
 }

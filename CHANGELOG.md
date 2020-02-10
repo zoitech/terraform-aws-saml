@@ -1,3 +1,10 @@
+## 1.1.2
+
+BUG FIXES:
+
+* The SAML metadata doc needs to be passed via file() ([#18](https://github.com/zoitech/terraform-aws-saml/issues/18))
+* Declare missing create_billing_role and create_logging_role vars ([#15](https://github.com/zoitech/terraform-aws-saml/issues/15))
+
 ## 1.1.1
 
 BACKWARDS INCOMPATIBILITIES / NOTES:
