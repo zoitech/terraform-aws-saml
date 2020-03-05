@@ -27,3 +27,8 @@ variable "create_logging_role" {
   description = "For creating the Delegate-Saml-Logging role"
   default     = false
 }
+
+variable "roles_extra_policies" {
+  description = "Extra policies for custom defined roles and permissions"
+  type = list
+}
