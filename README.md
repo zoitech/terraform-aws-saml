@@ -63,6 +63,23 @@ module "saml" {
 }
 ```
 
+### Extra policies per role
+
+You can define extra policies to roles as follows:
+
+```hcl
+  roles_extra_policies = [
+    {
+      role_name        = "SAML_ReadOnly"
+      role_policy_arns = "arn:aws:iam::1234567890101:policy/customPolicy1"
+    },
+    {
+      role_name        = "SAML_ReadOnly"
+      role_policy_arn  = "arn:aws:iam::1234567890101:policy/customPolicy2"
+    },
+   ]
+```
+
 ### To reference a tagged version
 
 ```hcl
@@ -70,6 +87,24 @@ module "iam_saml" {
   source = "git::https://github.com/zoitech/terraform-aws-saml.git?ref=1.1.1"  
 }
 ```
+
+## Inputs
+
+| Name | Description | Type | Default | Required |
+|------|-------------|------|---------|:--------:|
+| create\_billing\_role | For creating the Delegate-Saml-Billing role | `bool` | `false` | no |
+| create\_logging\_role | For creating the Delegate-Saml-Logging role | `bool` | `false` | no |
+| provider\_metadata\_file | The path to of the metadatafile | `any` | n/a | yes |
+| provider\_name | The name of the provider. | `string` | `"ADFS"` | no |
+| roles | For custom defined roles and permissions | <pre>list(object({<br>    role_name        = string<br>    role_policy_arn  = string<br>    role_description = string<br>  }))</pre> | n/a | yes |
+| roles\_extra\_policies | Extra policies for custom defined roles and permissions | <pre>list(object({<br>    role_name        = string<br>    role_policy_arn  = string<br>  }))</pre> | n/a | yes |
+
+## Outputs
+
+| Name | Description |
+|------|-------------|
+| role\_arns | ARN of the Role |
+| saml\_provider | ARN of the SAML Provider |
 
 ## Authors
 Module managed by [Zoi](https://github.com/zoitech).
