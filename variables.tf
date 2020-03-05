@@ -30,5 +30,9 @@ variable "create_logging_role" {
 
 variable "roles_extra_policies" {
   description = "Extra policies for custom defined roles and permissions"
-  type = list
+  type = list(object({
+    role_name        = string
+    role_policy_arn  = string
+  }))
+  default = null
 }
