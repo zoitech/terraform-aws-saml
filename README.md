@@ -67,7 +67,7 @@ module "saml" {
 
 ```hcl
 module "iam_saml" {
-  source = "git::https://github.com/zoitech/terraform-aws-saml.git?ref=1.1.1"  
+  source = "git::https://github.com/zoitech/terraform-aws-saml.git?ref=2.0.0"  
 }
 ```
 
@@ -76,3 +76,44 @@ Module managed by [Zoi](https://github.com/zoitech).
 
 ## License
 MIT License. See LICENSE for full details.
+## Requirements
+
+| Name | Version |
+|------|---------|
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 0.13 |
+
+## Providers
+
+| Name | Version |
+|------|---------|
+| <a name="provider_aws"></a> [aws](#provider\_aws) | n/a |
+
+## Modules
+
+No modules.
+
+## Resources
+
+| Name | Type |
+|------|------|
+| [aws_iam_role.delegate_user](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_role) | resource |
+| [aws_iam_role_policy_attachment.delegate_user_attachment](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_role_policy_attachment) | resource |
+| [aws_iam_saml_provider.saml](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_saml_provider) | resource |
+| [aws_caller_identity.current](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/caller_identity) | data source |
+
+## Inputs
+
+| Name | Description | Type | Default | Required |
+|------|-------------|------|---------|:--------:|
+| <a name="input_create_billing_role"></a> [create\_billing\_role](#input\_create\_billing\_role) | For creating the Delegate-Saml-Billing role | `bool` | `false` | no |
+| <a name="input_create_logging_role"></a> [create\_logging\_role](#input\_create\_logging\_role) | For creating the Delegate-Saml-Logging role | `bool` | `false` | no |
+| <a name="input_provider_metadata_file"></a> [provider\_metadata\_file](#input\_provider\_metadata\_file) | The path to of the metadatafile | `any` | `null` | no |
+| <a name="input_provider_name"></a> [provider\_name](#input\_provider\_name) | The name of the provider. | `string` | `"ADFS"` | no |
+| <a name="input_roles"></a> [roles](#input\_roles) | For custom defined roles and permissions | <pre>list(object({<br>    role_name        = string<br>    role_policy_arn  = string<br>    role_description = string<br>  }))</pre> | `null` | no |
+
+## Outputs
+
+| Name | Description |
+|------|-------------|
+| <a name="output_role_arns"></a> [role\_arns](#output\_role\_arns) | ARN of the Role |
+| <a name="output_saml_provider"></a> [saml\_provider](#output\_saml\_provider) | ARN of the SAML Provider |

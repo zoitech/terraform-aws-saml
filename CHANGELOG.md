@@ -1,3 +1,11 @@
+## 2.0.0
+
+ENHANCEMENTS:
+* Upgraded terraform version to 0.13  [#21](https://github.com/zoitech/terraform-aws-saml/issues/21)
+
+BACKWARDS INCOMPATIBILITIES / NOTES:
+* Works with terraform 0.13.x
+
 ## 1.1.2
 
 BUG FIXES:
